@@ -18,6 +18,6 @@ jobs:
         uses: docker/login-action@v1.12.0
         with:
           # Username used to log against the Docker registry
-          username: ${{ secrets.DEV.DOCKERHUB_USERNAME }}
+          username: ${{ env.DEV.DOCKERHUB_USERNAME }}
           # Password or personal access token used to log against the Docker registry
-          password:  ${{ secrets.DEV.DOCKERHUB_PASSWORD }}
+          password: ${{ env.DEV.DOCKERHUB_PASSWORD }}
