@@ -28,7 +28,7 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            marcosadsj/rotten-potatoes: latest
-            marcosadsj/rotten-potatoes: ${{ github.run_number }}
+            marcosadsj/rotten-potatoes:latest
+            marcosadsj/rotten-potatoes:${{ github.run_number }}
 
 
