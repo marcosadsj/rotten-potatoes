@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: mongodb
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: mongodb
@@ -51,7 +50,7 @@ spec:
     spec:
       containers:
         - name: rotten-potatoes
-          image: fabricioveronez/rotten-potatoes:latest
+          image: marcosadsj/rotten-potatoes:v2
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
@@ -59,7 +58,7 @@ spec:
             - name: MONGODB_DB
               value: admin
             - name: MONGODB_HOST
-              value: mongodb
+              value: mongodb-service
             - name: MONGODB_PORT
               value: "27017"
             - name: MONGODB_USERNAME
@@ -75,7 +74,8 @@ spec:
   selector:
     app: rotten-potatoes
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 5000
       nodePort: 30000
   type: NodePort
